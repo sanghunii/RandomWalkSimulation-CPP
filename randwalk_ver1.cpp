@@ -18,8 +18,8 @@ int main() {
     char filename[40];
     cout << "출력값을 저장할 파일명 : ";
     cin.getline(filename, 40);
-    ofstream File_out;                      //output filestream객체를 하나 선언
-    File_out.open(filename);        //그 객체랑 원하는 파일과 연결.
+    ofstream File_out;                      
+    File_out.open(filename);       
     File_out.setf(ios_base::fixed);
     File_out.precision(2);
 
@@ -38,8 +38,8 @@ int main() {
             << result.xval() << result.yval() << ")\n";
         while (result.magval() < target)
         {
-            direction = rand() % 360;                           //0에서 359까지의 값이 무작위로 대입된다. 이때 이거는 각도임.
-            step.reset(dstep, direction, Vector::POL);          //각도가 랜덤하게 결정. 보폭은 사용자가 입력한대로
+            direction = rand() % 360;                           //0에서 359까지의 값이 무작위로 대입된다. ( 0degree ~ 359degree)
+            step.reset(dstep, direction, Vector::POL);          //방향은 무작위. 보폭은 사용자가 입력한대로
             result = result + step;
             steps++;
             File_out << steps << ": (x, y) = (" 
